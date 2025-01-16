@@ -1,3 +1,4 @@
+'use client'
 import React from "react"
 import { XMarkIcon } from "@heroicons/react/20/solid"
 

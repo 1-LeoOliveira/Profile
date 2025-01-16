@@ -1,3 +1,4 @@
+'use client'
 import SkillsLanguage from './components/SkillsLanguage'
 
 export default function SkillLanguagePage() {

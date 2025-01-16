@@ -1,3 +1,4 @@
+'use client'
 // app/Skillsistem/page.tsx
 import React from "react";
 import SkillsistemComponent from "../SkillsistemComponent";
