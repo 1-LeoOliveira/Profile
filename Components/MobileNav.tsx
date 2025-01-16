@@ -8,19 +8,23 @@ interface MobileNavProps {
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({ nav, closeNav }) => {
+    const navClasses = nav 
+        ? "translate-x-0 opacity-100" 
+        : "translate-x-[-100%] opacity-0";
+
     return (
-        <div className={`fixed ${nav ? "translate-x-0" : "translate-x-[-100%]"} transform transition-all duration-300 top-0 left-0 right-0 bottom-0 z-[1000000] bg-[#09101a]`}>
-            <div className="w-[100vw] h-[100vh] flex flex-col items-center justify-center">
-                <a href="#Hero" className="nav-link-mobile">HOME</a>
-                <a href="#About" className="nav-link-mobile">SOBRE</a>
-                <a href="#Services" className="nav-link-mobile">SEVIÇO</a>
-                <a href="#Skill" className="nav-link-mobile">SKILL</a>
-                <a href="#Project" className="nav-link-mobile">PROJECT</a>
-                <a href="#Footer" className="nav-link-mobile">CONTATO</a>
+        <div className={`fixed ${navClasses} transform transition-all duration-300 top-0 left-0 w-full h-full z-[10001] bg-[#141c27]`}>
+            <div className="w-full h-full flex flex-col items-center justify-center">
+                <a href="#Hero" onClick={closeNav} className="nav-link-mobile">HOME</a>
+                <a href="#About" onClick={closeNav} className="nav-link-mobile">SOBRE</a>
+                <a href="#Services" onClick={closeNav} className="nav-link-mobile">SEVIÇO</a>
+                <a href="#Skill" onClick={closeNav} className="nav-link-mobile">SKILLS</a>
+                <a href="#Project" onClick={closeNav} className="nav-link-mobile">PROJECT</a>
+                <a href="#Footer" onClick={closeNav} className="nav-link-mobile">CONTATO</a>
             </div>
             <div
                 onClick={closeNav}
-                className="absolute z-[10000000] cursor-pointer top-[2rem] right-[2rem] w-[2rem] h-[2rem] text-[#FE5F2F]"
+                className="absolute cursor-pointer top-[2rem] right-[2rem] w-[2rem] h-[2rem] text-[#FE5F2F]"
             >
                 <XMarkIcon />
             </div>
