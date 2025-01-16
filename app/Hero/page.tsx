@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Particle from "../components/Particle/page";
 import TextEffect from "../TextEffect/page";

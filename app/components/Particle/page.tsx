@@ -1,3 +1,4 @@
+'use client'
 import dynamic from 'next/dynamic'
 
 const ParticleComponent = dynamic(() => import('../Particle/ParticleComponent'), {
