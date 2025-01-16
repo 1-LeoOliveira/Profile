@@ -1,35 +1,46 @@
 'use client'
-import React from "react"
-import { XMarkIcon } from "@heroicons/react/20/solid"
+import dynamic from 'next/dynamic';
+import React from "react";
+
+const XMarkIcon = dynamic(
+  () => import('@heroicons/react/20/solid').then((mod) => mod.XMarkIcon),
+  { ssr: false }
+);
 
 interface MobileNavProps {
     nav: boolean;
     closeNav: () => void;
 }
 
-const MobileNav: React.FC<MobileNavProps> = ({ nav, closeNav }) => {
-    const navClasses = nav 
-        ? "translate-x-0 opacity-100" 
-        : "translate-x-[-100%] opacity-0";
-
+const MobileNav = ({ nav, closeNav }: MobileNavProps) => {
     return (
-        <div className={`fixed ${navClasses} transform transition-all duration-300 top-0 left-0 w-full h-full z-[10001] bg-[#141c27]`}>
+        <div 
+            className={`
+                lg:hidden fixed top-0 left-0 w-full h-full 
+                ${nav ? 'translate-x-0' : 'translate-x-[-100%]'} 
+                transform transition-all duration-300 
+                z-[10001] bg-[#141c27]
+            `}
+        >
             <div className="w-full h-full flex flex-col items-center justify-center">
-                <a href="#Hero" onClick={closeNav} className="nav-link-mobile">HOME</a>
-                <a href="#About" onClick={closeNav} className="nav-link-mobile">SOBRE</a>
-                <a href="#Services" onClick={closeNav} className="nav-link-mobile">SEVIÇO</a>
-                <a href="#Skill" onClick={closeNav} className="nav-link-mobile">SKILLS</a>
-                <a href="#Project" onClick={closeNav} className="nav-link-mobile">PROJECT</a>
-                <a href="#Footer" onClick={closeNav} className="nav-link-mobile">CONTATO</a>
+                <a href="#Hero" onClick={closeNav} className="text-white text-[24px] my-4 hover:text-[#FE5F2F] transition-all duration-200">HOME</a>
+                <a href="#About" onClick={closeNav} className="text-white text-[24px] my-4 hover:text-[#FE5F2F] transition-all duration-200">SOBRE</a>
+                <a href="#Services" onClick={closeNav} className="text-white text-[24px] my-4 hover:text-[#FE5F2F] transition-all duration-200">SERVIÇO</a>
+                <a href="#Skill" onClick={closeNav} className="text-white text-[24px] my-4 hover:text-[#FE5F2F] transition-all duration-200">SKILLS</a>
+                <a href="#Project" onClick={closeNav} className="text-white text-[24px] my-4 hover:text-[#FE5F2F] transition-all duration-200">PROJECT</a>
+                <a href="#Footer" onClick={closeNav} className="text-white text-[24px] my-4 hover:text-[#FE5F2F] transition-all duration-200">CONTATO</a>
             </div>
-            <div
+            
+            <div 
                 onClick={closeNav}
-                className="absolute cursor-pointer top-[2rem] right-[2rem] w-[2rem] h-[2rem] text-[#FE5F2F]"
+                className="absolute top-[2rem] right-[2rem] cursor-pointer"
             >
-                <XMarkIcon />
+                <XMarkIcon className="w-[2rem] h-[2rem] text-[#FE5F2F]" />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default MobileNav;
+export default dynamic(() => Promise.resolve(MobileNav), {
+    ssr: false
+});
