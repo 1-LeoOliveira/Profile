@@ -1,5 +1,5 @@
 import React from "react";
-import Particle from "../Particle/page";
+import Particle from "../components/Particle/page";
 import TextEffect from "../TextEffect/page";
 import Image from "next/image";
 import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";

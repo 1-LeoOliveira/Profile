@@ -6,7 +6,7 @@ import MobileNav from "@/Components/MobileNav";
 import Nav from "@/Components/Nav";
 import Projects from "@/app/Projects/page";
 import Services from "@/app/Services/page";
-import Skills from "@/app/Skills/page";
+import Skills from "@/app/components/Skills/page";
 import React, { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';

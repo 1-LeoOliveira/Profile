@@ -1,21 +1,21 @@
 import React from "react";
-import Skillsitem from "../Skillsistem/page";
-import SkillsLanguage from "../SkillLangueage/page";
+import SkillsItem from "./SkillsItem";
+import SkillsLanguage from "./SkillsLanguage";
 
-const Skills = () => {
+export default function SkillsPage() {
     return (
         <div className="pt-[4rem] md:pt-[8rem] pb-[5rem] bg-[#09101a]" id="Skill">
             <h1 className="heading">
-                EDUCAÇÃO & <span className="text-[#FE5F2F]"> SKILL</span>
+                EDUCAÇÃO & <span className="text-[#FE5F2F]">SKILL</span>
             </h1>
             <div className="w-[80%] mx-auto pt-[4rem] md:pt-[8rem] grid grid-cols-1 md:grid-cols-2 gap-[2rem] items-center">
                 <div>
-                    <Skillsitem
-                        title="DEV. WEB "
+                    <SkillsItem
+                        title="DEV. WEB"
                         year="2014 - 2016"
                         description="Curso focado em desenvolvimento web, abordando HTML, CSS e JavaScript."
                     />
-                    <Skillsitem
+                    <SkillsItem
                         title="DEV. SYSTEM"
                         year="2021 - 2024"
                         description="Formação em Análise e Desenvolvimento de Sistemas, com ênfase em metodologias ágeis e tecnologias modernas."
@@ -30,12 +30,12 @@ const Skills = () => {
                     />
                 </div>
                 <div>
-                    <Skillsitem
+                    <SkillsItem
                         title="Next Js Developer"
                         year="2024 - 2024"
                         description="Especialização em desenvolvimento com Next.js, incluindo SSR e SSG."
                     />
-                    <Skillsitem
+                    <SkillsItem
                         title="Node Js Developer"
                         year="2023 - 2024"
                         description="Experiência em desenvolvimento de back-end com Node.js e Express."
@@ -53,5 +53,3 @@ const Skills = () => {
         </div>
     );
 }
-
-export default Skills;
