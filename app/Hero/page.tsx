@@ -3,9 +3,14 @@ import React from "react";
 import Particle from "../components/Particle/page";
 import TextEffect from "../TextEffect/page";
 import Image from "next/image";
+import dynamic from 'next/dynamic'
 import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";
 
+
 const Hero = () => {
+    const Particle = dynamic(() => import('../components/Particle/ParticleComponent'), {
+        ssr: false
+    }); 
     return <div className="h-[88vh] bg-[url('/images/banner.jpg')] mt-[10vh] bg-cover bg-center" id="Hero">
         <Particle />
         <div className="w-[80%] grid-cols-1 mx-auto grid lg:grid-cols-2 gap-[3rem] h-[100%] items-center">
